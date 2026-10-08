@@ -1,0 +1,12 @@
+[Unit]
+Description=Ask whether each prayer has been done
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/solat-lock daemon
+Restart=on-failure
+RestartSec=30s
+
+[Install]
+WantedBy=graphical-session.target

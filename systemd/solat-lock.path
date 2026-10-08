@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync prayer times when the lock screen zone changes
+
+[Path]
+PathChanged=%h/.config/kscreenlockerrc
+Unit=solat-lock.service
+
+[Install]
+WantedBy=default.target

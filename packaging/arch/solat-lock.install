@@ -1,0 +1,15 @@
+post_install() {
+    echo ">>> Run 'solat-lock setup' as your user (not root) to enable the"
+    echo ">>> services and show prayer times on the lock screen."
+}
+
+post_upgrade() {
+    echo ">>> Restart the reminder service to pick up the new version:"
+    echo ">>>   systemctl --user restart solat-lock-notify.service"
+}
+
+pre_remove() {
+    echo ">>> Before removing, as your user you may want to run:"
+    echo ">>>   systemctl --user disable --now solat-lock.timer solat-lock.path solat-lock-notify.service"
+    echo ">>>   kwriteconfig6 --file kscreenlockerrc --group Greeter --key WallpaperPlugin org.kde.image"
+}

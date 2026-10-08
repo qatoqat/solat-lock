@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+  <kcfgfile name=""/>
+  <group name="General">
+    <entry name="Zone" type="String">
+      <label>JAKIM zone code</label>
+      <default>PRK02</default>
+    </entry>
+    <entry name="Image" type="String">
+      <label>Background image URL</label>
+      <default>file:///usr/share/wallpapers/Next/contents/images_dark/5120x2880.png</default>
+    </entry>
+    <entry name="Dim" type="Int">
+      <label>Background dimming, percent</label>
+      <default>35</default>
+    </entry>
+    <entry name="Position" type="Int">
+      <label>0 top-left, 1 left, 2 bottom-left, 3 top-right, 4 right, 5 bottom-right</label>
+      <default>1</default>
+    </entry>
+    <entry name="English" type="Bool">
+      <label>Use English prayer names</label>
+      <default>false</default>
+    </entry>
+    <entry name="Use12h" type="Bool">
+      <label>Show times in 12-hour format</label>
+      <default>false</default>
+    </entry>
+    <entry name="Notify" type="Bool">
+      <label>Ask whether each prayer is done via notifications</label>
+      <default>true</default>
+    </entry>
+    <entry name="RemindEvery" type="Int">
+      <label>Minutes between reminders</label>
+      <default>30</default>
+    </entry>
+    <entry name="Done" type="String">
+      <label>Today's done prayers, written by solat-lock</label>
+      <default></default>
+    </entry>
+    <entry name="PrayerData" type="String">
+      <label>Timetable JSON written by the solat-lock tool</label>
+      <default></default>
+    </entry>
+  </group>
+</kcfg>

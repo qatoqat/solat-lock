@@ -1,0 +1,39 @@
+# Maintainer: Qatoqat <39856402+qatoqat@users.noreply.github.com>
+pkgname=solat-lock
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="JAKIM (e-solat.gov.my) prayer times with check-offs and reminders on the KDE Plasma lock screen"
+arch=('x86_64' 'aarch64')
+url="https://github.com/qatoqat/solat-lock"
+license=('GPL-2.0-or-later')
+depends=('gcc-libs' 'glibc' 'kconfig' 'kscreenlocker' 'kirigami' 'plasma5support' 'qt6-declarative')
+makedepends=('cargo' 'git')
+install=solat-lock.install
+source=("git+$url.git#tag=v$pkgver")
+sha256sums=('SKIP')
+
+prepare() {
+    cd "$pkgname"
+    export RUSTUP_TOOLCHAIN=stable
+    cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
+}
+
+build() {
+    cd "$pkgname"
+    export RUSTUP_TOOLCHAIN=stable
+    export CARGO_TARGET_DIR=target
+    cargo build --frozen --release
+}
+
+package() {
+    cd "$pkgname"
+    install -Dm755 target/release/solat-lock -t "$pkgdir/usr/bin/"
+    install -Dm644 systemd/* -t "$pkgdir/usr/lib/systemd/user/"
+
+    local plugin="$pkgdir/usr/share/plasma/wallpapers/solat.lockscreen"
+    install -Dm644 plasma/metadata.json -t "$plugin/"
+    install -Dm644 plasma/contents/config/* -t "$plugin/contents/config/"
+    install -Dm644 plasma/contents/ui/* -t "$plugin/contents/ui/"
+
+    install -Dm644 README.md -t "$pkgdir/usr/share/doc/$pkgname/"
+}

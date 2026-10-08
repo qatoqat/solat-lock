@@ -1,0 +1,10 @@
+[Unit]
+Description=Periodically sync JAKIM prayer times for the lock screen
+
+[Timer]
+OnStartupSec=30s
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target

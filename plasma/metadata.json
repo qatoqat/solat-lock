@@ -1,0 +1,13 @@
+{
+    "KPackageStructure": "Plasma/Wallpaper",
+    "KPlugin": {
+        "Authors": [{ "Name": "q4t" }],
+        "Description": "Prayer times from JAKIM e-solat with a countdown to the next prayer",
+        "Icon": "clock",
+        "Id": "solat.lockscreen",
+        "License": "GPL-2.0-or-later",
+        "Name": "Waktu Solat (JAKIM)",
+        "Version": "1.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
