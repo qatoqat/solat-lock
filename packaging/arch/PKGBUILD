@@ -8,6 +8,7 @@ url="https://github.com/qatoqat/solat-lock"
 license=('GPL-2.0-or-later')
 depends=('gcc-libs' 'glibc' 'kconfig' 'kscreenlocker' 'kirigami' 'plasma5support' 'qt6-declarative')
 makedepends=('cargo' 'git')
+options=('!lto')
 install=solat-lock.install
 source=("git+$url.git#tag=v$pkgver")
 sha256sums=('SKIP')
